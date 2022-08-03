@@ -1,6 +1,31 @@
-# Shopping
+# Shopping_app_V1
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+This project was generated with Angular version 14.0.4, Bootstrap and SCSS.
+
+
+# Components 
+
+   * AppComponent
+   * NavbarComponent
+   * HomeComponent
+   * ProductComponent
+   * BasketComponent
+   * PaymentComponent
+
+# Modules
+   * BrowserModule
+   * AppRoutingModule
+   * ToastrModule
+   * BrowserAnimationsModule
+   
+# Screens
+
+* Product Screen
+![Product Screen](https://user-images.githubusercontent.com/36553214/182679791-107dc8fb-ae8e-4888-982f-9a92a257ca57.png)
+* Payment Screen
+![Payment Screen](https://user-images.githubusercontent.com/36553214/182679807-1bbb473b-1d4b-443b-bda4-121f16732ae1.png)
+
+
 
 ## Development server
 

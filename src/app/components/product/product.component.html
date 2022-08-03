@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-lg-3 mt-4" *ngFor="let product of products"> 
+        <!-- ngfor ile modelden ürünlerimizi çektik -->
+        <!-- ürünleri dörde bölmek adına yaptık -->
+        <div class="form-group text-center">
+            <img src="{{product.imageUrl}}"
+                alt="Yoğurt" style="width: 200px; height:200px">
+            <h5 class="text-center">{{product.name}}</h5>
+            <h6 class="text-danger">{{(product.price)| currency : 'TRY':'symbol-narrow':'1.2-2'}}</h6>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" id="quantity-{{product.name}}" value="1" min="1" style="font-weight: 700;">
+
+                        <div class="col-md-4"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary mt-2" (click)="addBasket(product)">Add Cart</button>
+        </div>
+    </div>
+
+
+
+</div>
+

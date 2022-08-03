@@ -1,0 +1,41 @@
+<h3 class="text-center text-success">Your Cart</h3>
+<hr>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Piece</th>
+            <th>Total</th>
+            <th>Transactions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let basket of baskets let index=index">
+            <td>{{index+1}}</td>
+            <td>{{basket.product.name}}</td>
+            <td><input type="number" class="form-control" [value]="basket.quantity" id="basketQuantity-{{basket.product.name}}" (change)="changeData(basket)" min="1"></td>
+            <td>{{(basket.quantity * basket.product.price)| currency :'TRY':'symbol-narrow':'1.2-2'}}</td>
+
+            <!-- Currency para birimi için hazır bir pipe'dır. Biz özelleştirdik ve ₺ dahil ettik. -->
+            <td><button class="btn btn-danger btn-sm" (click)="deleteProduct(basket)">Delete</button></td>
+            <!-- buttonda btn-sm daha küçük buton olayını gerçekleştirir. -->
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Total Value</th>
+            <!-- <th>{{(total)| currency:'TRY':'symbol-narrow':'1.2-2'}}</th> -->
+            <!-- Currency para birimi için hazır bir pipe'dır. Biz özelleştirdik ve ₺ dahil ettik -->
+            <th [innerText]="calc() | currency:'TRY':'symbol-narrow':'1.2-2'"></th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>
+<div class="form-group text-center">
+<button class="btn btn-lg btn-success" data-bs-toggle="modal" data-bs-target="#paymentModal">Pay Now</button>
+<!-- data-bs-toggle="modal" data-bs-target="#paymentModal" payment tarafındaki modal'ı bu kısımda dahil ettik. -->
+</div>
+<app-payment [total]="total" (myEvent)="payment($event)"></app-payment>
